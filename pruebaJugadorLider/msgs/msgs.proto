@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package msgs;
+
+option go_package = "example.com/go-msgs-grpc;go_msgs_grpc";
+
+service LiderManagement {
+    rpc Enviarjugada (jugada) returns (respuestalider) {}
+    rpc PeticionJugar (Peticion) returns (RespuestaPeticion) {}
+}
+    
+message jugada{
+    int32 idJugador = 1; 
+    int32 contenido = 2;
+}
+message respuestalider{ 
+    int32 siguejugando = 1;
+    int32 pasaronda = 2 ; 
+}
+message Peticion{
+    string nombreJugador = 1;
+}
+message RespuestaPeticion{
+    int32 puedeJugar = 1;
+    int32 idAsignado = 2;
+}
